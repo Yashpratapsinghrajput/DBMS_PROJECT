@@ -1,0 +1,40 @@
+-- 1
+SELECT DISTINCT job_title FROM Job_Titles;
+
+-- 2
+SELECT dept_name FROM Departments;
+
+-- 3
+SELECT * FROM Employees WHERE dept_id = 1;
+
+-- 4
+SELECT * FROM Employees WHERE hire_date > '2022-01-01';
+
+-- 5
+SELECT * FROM Salaries 
+WHERE basic_salary > 50000;
+
+-- 6
+SELECT * FROM Leave_Requests 
+WHERE status = 'Approved';
+
+-- 7
+SELECT certification_name 
+FROM Certifications
+WHERE expiry_date > '2027-01-01';
+
+-- 8
+SELECT e.first_name, s.basic_salary
+FROM Employees e, Salaries s
+WHERE e.emp_id = s.emp_id;
+
+-- 9
+SELECT d.dept_name, e.first_name, j.job_title
+FROM Departments d, Employees e, Job_Titles j
+WHERE d.dept_id = e.dept_id
+AND e.job_id = j.job_id;
+
+-- 10
+SELECT e.first_name, l.leave_type
+FROM Employees e, Leave_Requests l
+WHERE e.emp_id = l.emp_id;
