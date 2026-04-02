@@ -1,0 +1,66 @@
+#1 Retrieve all unique job titles
+SELECT DISTINCT job_title FROM Job_Titles;
+(RA) π job_title (Job_Titles)
+
+⸻
+
+#2 Retrieve names of all departments
+SELECT dept_name FROM Departments;
+(RA) π dept_name (Departments)
+
+⸻
+
+#3 Retrieve all employees in department with ID = 1
+SELECT * FROM Employees WHERE dept_id = 1;
+(RA) σ dept_id = 1 (Employees)
+
+⸻
+
+#4 Retrieve employees hired after 2022
+SELECT * FROM Employees WHERE hire_date > '2022-01-01';
+(RA) σ hire_date > ‘2022-01-01’ (Employees)
+
+⸻
+
+#5 Retrieve employees with salary greater than 50000
+SELECT * FROM Salaries 
+WHERE basic_salary > 50000;
+(RA) σ basic_salary > 50000 (Salaries)
+
+⸻
+
+#6 Retrieve all approved leave requests
+SELECT * FROM Leave_Requests WHERE status = 'Approved';
+(RA) σ status = ‘Approved’ (Leave_Requests)
+
+⸻
+
+#7 Retrieve certification names of employees
+SELECT certification_name FROM Certifications 
+WHERE expiry_date > '2027-01-01';
+(RA) π certification_name ( σ expiry_date > ‘2027-01-01’ (Certifications) )
+
+⸻
+
+#8 Retrieve employee names and their salaries
+SELECT e.first_name, s.basic_salary
+FROM Employees e, Salaries s
+WHERE e.emp_id = s.emp_id;
+(RA) π first_name, basic_salary ( Employees ⨝ Salaries )
+
+⸻
+
+#9 Retrieve department names along with employee names and job titles
+SELECT d.dept_name, e.first_name, j.job_title
+FROM Departments d, Employees e, Job_Titles j
+WHERE d.dept_id = e.dept_id
+AND e.job_id = j.job_id;
+(RA) π dept_name, first_name, job_title ( Departments ⨝ Employees ⨝ Job_Titles )
+
+⸻
+
+#10 Retrieve employee names and their leave types
+SELECT e.first_name, l.leave_type
+FROM Employees e, Leave_Requests l
+WHERE e.emp_id = l.emp_id;
+(RA) π first_name, leave_type ( Employees ⨝ Leave_Requests )
