@@ -1,0 +1,46 @@
+--1
+Employees
+
+
+--2
+σ(dept_id = 2)(Employees)
+
+
+--3
+π(first_name, last_name)(Employees)
+
+
+--4
+Employees ⨝ Departments
+
+
+--5
+σ(salary > 50000)(Employees)
+
+
+--6
+γ(dept_id, COUNT(*))(Employees)
+
+
+--7
+Employees ⨝ Leave_Requests
+
+
+--8
+Employees - (Employees ⨝ Leave_Requests)
+
+
+--9
+γ(AVG(salary))(Employees)
+
+
+--10
+σ(salary = MAX(salary))(Employees)
+
+
+Symbol      Meaning               Easy Line
+σ           Selection             Rows filter
+π           Projection            Columns select
+⨝           Join                  Combine tables
+γ           Group By              Aggregation
+−           Difference            Subtract
